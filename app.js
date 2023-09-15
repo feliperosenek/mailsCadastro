@@ -59,17 +59,17 @@ api.get('/', (req, res) => {
 });
 
 api.post('/', async (req, res) => {
-    console.log("")
-    console.log("")
-    console.log("")
-    console.log("")
-    console.log("")
+    console.log("  ")
+    console.log("  ")
+    console.log("  ")
+    console.log("  ")
+    console.log("  ")
     console.log("------------------------------------ INICIO NOVA BUSCA --------------------------------------------")
-    console.log("")
-    console.log("")
-    console.log("")
-    console.log("")
-    console.log("")
+    console.log("  ")
+    console.log("  ")
+    console.log("  ")
+    console.log("  ")
+    console.log("  ")
 
     try {
         const searchGoogle = req.body.data;
@@ -111,7 +111,7 @@ api.post('/', async (req, res) => {
                 results.forEach(function (item) {
                     if (item) {
                         item.forEach(function (search, t) {
-                            console.log("")
+                            console.log("  ")
                             console.log("PESQUISA -> "+line + " -------- Pesquisa "+y+"  de "+searchLines.length+" -- Página:" + i + " -------- Linha: " + (t + 1) + "  -------------")
                             console.log("SNIPPET:  "+search.snippet)
                             var text = search.snippet
@@ -124,7 +124,7 @@ api.post('/', async (req, res) => {
                                     emailsSearch.push(emailsEncontrados)
                                 }
                             }
-                            console.log("")
+                            console.log("  ")
                         })
                     }
                 })
