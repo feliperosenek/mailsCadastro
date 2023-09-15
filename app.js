@@ -97,7 +97,7 @@ api.post('/', async (req, res) => {
                     var start = "&start=" + i + "1"
                 }
 
-                await axios.get("https://www.googleapis.com/customsearch/v1?key=AIzaSyDBqhNcbcS0u9sbfdekOT7uWF89cxuqIEo&cx=85c54b05fec9140e1&q=" + formattedLine + start, {
+                await axios.get("https://www.googleapis.com/customsearch/v1?key=AIzaSyD-wVlr8g3M-bZgX5WLIEYovl-4favNzRY&cx=e6e261a12239643b2&q=" + formattedLine + start, {
                     method: 'GET',
                     redirect: 'follow'
                 })
