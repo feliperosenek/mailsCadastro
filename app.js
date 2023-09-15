@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 const api = express();
 api.use(express.json());
