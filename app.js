@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
+const axios = require('axios');
 
 const api = express();
 api.use(express.json());
@@ -76,11 +76,6 @@ api.post('/', async (req, res) => {
             console.log("TERMO: " + line)
             const formattedLine = line.trim().replace(/\s+/g, '+');
 
-            var requestOptions = {
-                method: 'GET',
-                redirect: 'follow'
-            };
-
             var i = 1
 
             while (i < 8) {
@@ -91,7 +86,10 @@ api.post('/', async (req, res) => {
                     var start = "&start=" + i + "1"
                 }
 
-                await fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyDBqhNcbcS0u9sbfdekOT7uWF89cxuqIEo&cx=85c54b05fec9140e1&q=" + formattedLine + start, requestOptions)
+                await axios.get("https://www.googleapis.com/customsearch/v1?key=AIzaSyDBqhNcbcS0u9sbfdekOT7uWF89cxuqIEo&cx=85c54b05fec9140e1&q=" + formattedLine + start, {
+                    method: 'GET',
+                    redirect: 'follow'
+                })
                     .then(response => response.json())
                     .then(result => {
                         const search = result.items
