@@ -41,7 +41,7 @@ api.get('/', (req, res) => {
         }
         </script>
         <h1 class="text-center" >Pesquisa E-mails Google</h1>
-        <form action="http://localhost:3000" method="POST">
+        <form action="/" method="POST">
         <div class="form-group">
         <textarea class="form-control" name="data" rows="5" cols="5"></textarea>
       </div>
