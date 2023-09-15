@@ -90,10 +90,9 @@ api.post('/', async (req, res) => {
                     method: 'GET',
                     redirect: 'follow'
                 })
-                    .then(response => response.json())
-                    .then(result => {
-                        const search = result.items
-                        results.push(search)
+                    .then(response => {
+                        const search = response.data
+                        results.push(search.items)
                         return results
                     })
                     .catch(error => console.log('error', error));
