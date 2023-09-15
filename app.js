@@ -59,6 +59,17 @@ api.get('/', (req, res) => {
 });
 
 api.post('/', async (req, res) => {
+    console.log("")
+    console.log("")
+    console.log("")
+    console.log("")
+    console.log("")
+    console.log("------------------------------------ INICIO NOVA BUSCA --------------------------------------------")
+    console.log("")
+    console.log("")
+    console.log("")
+    console.log("")
+    console.log("")
 
     try {
         const searchGoogle = req.body.data;
@@ -146,5 +157,5 @@ api.post('/', async (req, res) => {
 });
 
 api.listen(process.env.PORT || 3000, () => {
-    console.log('API RUN!');
+    console.log('Sistema pronto para começar a buscar e-mails!!!');
 });
