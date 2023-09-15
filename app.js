@@ -101,7 +101,7 @@ api.post('/', async (req, res) => {
                     if (item) {
                         item.forEach(function (search, t) {
                             console.log("")
-                            console.log(searchLines + " -------- Pesquisa "+y+"  de "+searchLines.length+" -- Página:" + i + " -------- Linha: " + (t + 1) + "  -------------")
+                            console.log("PESQUISA -> "+line + " -------- Pesquisa "+y+"  de "+searchLines.length+" -- Página:" + i + " -------- Linha: " + (t + 1) + "  -------------")
                             console.log("SNIPPET:  "+search.snippet)
                             var text = search.snippet
                             const emailRegex = /[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/g;
