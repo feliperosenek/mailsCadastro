@@ -95,7 +95,7 @@ api.post('/', async (req, res) => {
 
                 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-                await delay(200)
+                await delay(350)
 
                 await axios.get("https://www.googleapis.com/customsearch/v1?key=AIzaSyDBqhNcbcS0u9sbfdekOT7uWF89cxuqIEo&cx=85c54b05fec9140e1&q=" + formattedLine + start, {
                     method: 'GET',
@@ -147,6 +147,8 @@ api.post('/', async (req, res) => {
         emailsList = emailsList.split('[').join()
         emailsList = emailsList.split(']').join()
         emailsList = emailsList.split(',,,').join("<br>")
+
+        console.log(emailsList)
 
         res.send(emailsList)
         res.status(200).end();
