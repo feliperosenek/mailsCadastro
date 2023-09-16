@@ -10,10 +10,6 @@ api.use(express.urlencoded({
 api.use(bodyParser.urlencoded({ extended: false }))
 api.use(bodyParser.json())
 
-function removerCaracteresAposBr(email) {
-    const novoEmail = email.replace(/\.br.*/, '.br');
-    return novoEmail;
-}
 
 api.get('/', (req, res) => {
     const form = `<!DOCTYPE html>
@@ -96,6 +92,10 @@ api.post('/', async (req, res) => {
                 } else {
                     var start = "&start=" + i + "1"
                 }
+
+                const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+                await delay(200)
 
                 await axios.get("https://www.googleapis.com/customsearch/v1?key=AIzaSyDBqhNcbcS0u9sbfdekOT7uWF89cxuqIEo&cx=85c54b05fec9140e1&q=" + formattedLine + start, {
                     method: 'GET',
