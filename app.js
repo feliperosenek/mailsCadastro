@@ -61,6 +61,9 @@ api.get('/g1', (req, res) => {
 });
 
 api.post('/g1', async (req, res) => {
+
+    fs.writeFile(filePath, " ");
+    
     console.log("  ")
     console.log("  ")
     console.log("  ")
@@ -152,11 +155,11 @@ api.post('/g1', async (req, res) => {
         emailsList = emailsList.split('"').join()
         emailsList = emailsList.split('[').join()
         emailsList = emailsList.split(']').join()
-        emailsList = emailsList.split(',,,').join("<br>")
+        emailsList = emailsList.split(',,,').join("\n")
 
-        console.log(emailsList)
+        fs.writeFile(filePath, emailsList);
+        res.redirect("/download")
 
-        res.send(emailsList)
         res.status(200).end();
     } catch (err) {
         console.error(err);
@@ -208,6 +211,9 @@ api.get('/g2', (req, res) => {
 });
 
 api.post('/g2', async (req, res) => {
+
+    fs.writeFile(filePath, " ");
+
     console.log("  ")
     console.log("  ")
     console.log("  ")
@@ -299,11 +305,11 @@ api.post('/g2', async (req, res) => {
         emailsList = emailsList.split('"').join()
         emailsList = emailsList.split('[').join()
         emailsList = emailsList.split(']').join()
-        emailsList = emailsList.split(',,,').join("<br>")
+        emailsList = emailsList.split(',,,').join("\n")
 
-        console.log(emailsList)
+        fs.writeFile(filePath, emailsList);
+        res.redirect("/download")
 
-        res.send(emailsList)
         res.status(200).end();
     } catch (err) {
         console.error(err);
@@ -356,13 +362,7 @@ api.get('/g3', (req, res) => {
 
 api.post('/g3', async (req, res) => {
 
-    fs.writeFile(filePath, " ", (err) => {
-        if (err) {
-          console.error('Erro ao escrever no arquivo:', err);
-        } else {
-          console.log('Arquivo foi escrito com sucesso.');
-        }
-      });
+    fs.writeFile(filePath, " ");
 
     console.log("  ")
     console.log("  ")
@@ -455,18 +455,10 @@ api.post('/g3', async (req, res) => {
         emailsList = emailsList.split('"').join()
         emailsList = emailsList.split('[').join()
         emailsList = emailsList.split(']').join()
-        emailsList = emailsList.split(',,,').join("<br>")
+        emailsList = emailsList.split(',,,').join("\n")
 
-        fs.writeFile(filePath, emailsList, (err) => {
-            if (err) {
-              console.error('Erro ao escrever no arquivo:', err);
-            } else {
-              console.log('Arquivo foi escrito com sucesso.');
-            }
-          });
-
-          res.redirect("/download")
-
+        fs.writeFile(filePath, emailsList);
+        res.redirect("/download")
 
         res.status(200).end();
     } catch (err) {
