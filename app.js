@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const fs = require('fs');
 
+const path = require('path');
+const filePath = path.resolve(__dirname, 'emails.txt');
+
 const api = express();
 api.use(express.json());
 api.use(express.urlencoded({
@@ -353,7 +356,7 @@ api.get('/g3', (req, res) => {
 
 api.post('/g3', async (req, res) => {
 
-    fs.writeFile("emails.txt", " ", (err) => {
+    fs.writeFile(filePath, " ", (err) => {
         if (err) {
           console.error('Erro ao escrever no arquivo:', err);
         } else {
@@ -456,7 +459,7 @@ api.post('/g3', async (req, res) => {
 
         console.log(emailsList)
 
-        fs.writeFile("emails.txt", emailsList, (err) => {
+        fs.writeFile(filePath, emailsList, (err) => {
             if (err) {
               console.error('Erro ao escrever no arquivo:', err);
             } else {
@@ -464,7 +467,7 @@ api.post('/g3', async (req, res) => {
             }
           });
 
-          res.sendFile("emails.txt", (err) => {
+          res.sendFile(filePath, (err) => {
             if (err) {
               console.error(err);
               res.status(500).send('Erro ao enviar o arquivo.');
