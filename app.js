@@ -352,6 +352,7 @@ api.get('/g3', (req, res) => {
 });
 
 api.post('/g3', async (req, res) => {
+
     fs.writeFile(emails.txt, " ", (err) => {
         if (err) {
           console.error('Erro ao escrever no arquivo:', err);
@@ -359,6 +360,7 @@ api.post('/g3', async (req, res) => {
           console.log('Arquivo foi escrito com sucesso.');
         }
       });
+
     console.log("  ")
     console.log("  ")
     console.log("  ")
@@ -464,7 +466,6 @@ api.post('/g3', async (req, res) => {
 
           res.sendFile(emails.txt, (err) => {
             if (err) {
-              // Se houver um erro ao enviar o arquivo, trate-o aqui
               console.error(err);
               res.status(500).send('Erro ao enviar o arquivo.');
             }
