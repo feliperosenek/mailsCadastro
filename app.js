@@ -475,7 +475,7 @@ api.post('/g3', async (req, res) => {
     }
 });
 
-api.get('/dwonload', async (req, res) => {
+api.get('/download', async (req, res) => {
     res.download("emails.txt")
 })
 
