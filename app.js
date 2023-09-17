@@ -467,12 +467,7 @@ api.post('/g3', async (req, res) => {
             }
           });
 
-          res.send(filePath, (err) => {
-            if (err) {
-              console.error(err);
-              res.status(500).send('Erro ao enviar o arquivo.');
-            }
-        })
+          res.download(filePath)
 
         res.status(200).end();
     } catch (err) {
