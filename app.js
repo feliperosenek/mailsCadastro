@@ -467,7 +467,7 @@ api.post('/g3', async (req, res) => {
             }
           });
 
-          res.download(filePath)
+          res.download("emails.txt")
 
         res.status(200).end();
     } catch (err) {
