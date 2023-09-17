@@ -464,7 +464,7 @@ api.post('/g3', async (req, res) => {
             }
           });
 
-          res.sendFile(emails.txt, (err) => {
+          res.sendFile("emails.txt", (err) => {
             if (err) {
               console.error(err);
               res.status(500).send('Erro ao enviar o arquivo.');
