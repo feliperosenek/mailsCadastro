@@ -457,8 +457,6 @@ api.post('/g3', async (req, res) => {
         emailsList = emailsList.split(']').join()
         emailsList = emailsList.split(',,,').join("<br>")
 
-        console.log(emailsList)
-
         fs.writeFile(filePath, emailsList, (err) => {
             if (err) {
               console.error('Erro ao escrever no arquivo:', err);
@@ -467,7 +465,8 @@ api.post('/g3', async (req, res) => {
             }
           });
 
-          res.download("emails.txt")
+          res.redirect("/download")
+
 
         res.status(200).end();
     } catch (err) {
@@ -475,6 +474,10 @@ api.post('/g3', async (req, res) => {
         res.status(500).send('Erro interno do servidor');
     }
 });
+
+api.get('/dwonload', async (req, res) => {
+    res.download("emails.txt")
+})
 
 api.listen(process.env.PORT || 3000, () => {
     console.log('Sistema pronto para começar a buscar e-mails!!!');
