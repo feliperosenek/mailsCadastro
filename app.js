@@ -353,7 +353,7 @@ api.get('/g3', (req, res) => {
 
 api.post('/g3', async (req, res) => {
 
-    fs.writeFile(emails.txt, " ", (err) => {
+    fs.writeFile("emails.txt", " ", (err) => {
         if (err) {
           console.error('Erro ao escrever no arquivo:', err);
         } else {
@@ -456,7 +456,7 @@ api.post('/g3', async (req, res) => {
 
         console.log(emailsList)
 
-        fs.writeFile(emails.txt, emailsList, (err) => {
+        fs.writeFile("emails.txt", emailsList, (err) => {
             if (err) {
               console.error('Erro ao escrever no arquivo:', err);
             } else {
